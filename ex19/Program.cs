@@ -4,20 +4,10 @@ namespace ex19
 {
     class Program
     {
+        //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
         static void Main(string[] args)
         {
-            Console.Write("Введите пятизначное положительное число: ");
-            string n = Console.ReadLine();
-            bool isIncorrect = true;
-            
-            while (isIncorrect)
-            {
-                if (!string.IsNullOrEmpty(n) && n.Length == 5 && n[0] != '-' && int.TryParse(n, out int num)) break;
-                
-                Console.WriteLine("Неверный ввод!");
-                Console.Write("Введите пятизначное положительное число: ");
-                n = Console.ReadLine();
-            }
+            string n = GetString();
 
             Console.WriteLine(IsPalindrome(n) ? $"{n} -> Палиндром" : $"{n} -> Не палиндром");
         }
@@ -37,5 +27,20 @@ namespace ex19
             return true;
         }
 
+        static string GetString()
+        {
+            Console.Write("Введите пятизначное положительное число: ");
+            string n = Console.ReadLine();
+            while (true)
+            {
+                if (!string.IsNullOrEmpty(n) && n.Length == 5 && n[0] != '-' && int.TryParse(n, out int num)) break;
+
+                Console.WriteLine("Неверный ввод!");
+                Console.Write("Введите пятизначное положительное число: ");
+                n = Console.ReadLine();
+            }
+
+            return n;
+        }
     }
 }
