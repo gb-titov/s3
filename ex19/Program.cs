@@ -8,8 +8,8 @@ namespace ex19
         static void Main(string[] args)
         {
             string n = GetString();
-
-            Console.WriteLine(IsPalindrome(n) ? $"{n} -> Палиндром" : $"{n} -> Не палиндром");
+            Console.WriteLine(IsPalindrome(n) ? $"Через строки: {n} -> Палиндром" : $"Через строки: {n} -> Не палиндром");
+            Console.WriteLine(IsPalindrome(Convert.ToInt32(n)) ? $"Через число: {n} -> Палиндром" : $"Через число: {n} -> Не палиндром");
         }
 
 
@@ -25,6 +25,19 @@ namespace ex19
                 i++;
             }
             return true;
+        }
+
+        static bool IsPalindrome(int num)
+        {
+            int reverseNum = 0, tempNum = num;
+
+            while (tempNum > 0)
+            {
+                reverseNum = reverseNum * 10 + tempNum % 10;
+                tempNum = tempNum / 10;
+            }
+
+            return reverseNum == num;
         }
 
         static string GetString()

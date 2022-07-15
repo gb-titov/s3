@@ -28,6 +28,20 @@ namespace ex23
 
             Console.WriteLine($"{n} -> {string.Join(", ", Array.ConvertAll<int, string>(ar, Convert.ToString))}");
 
+            Console.WriteLine("Как таблица:");
+            WriteTable(ar);
         }
+
+        static void WriteTable(int[] a)
+        {
+            int i = 0;
+            
+            while (i < a.Length)
+            {
+                Console.WriteLine($"| {i+1, 2} | {a[i],3} |");
+                i++;
+            }
+        }
+
     }
 }
