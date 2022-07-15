@@ -4,13 +4,12 @@ namespace ex19
 {
     class Program
     {
+        //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
         static void Main(string[] args)
         {
             Console.Write("Введите пятизначное положительное число: ");
             string n = Console.ReadLine();
-            bool isIncorrect = true;
-            
-            while (isIncorrect)
+            while (true)
             {
                 if (!string.IsNullOrEmpty(n) && n.Length == 5 && n[0] != '-' && int.TryParse(n, out int num)) break;
                 
